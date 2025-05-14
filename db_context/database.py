@@ -633,7 +633,7 @@ class DatabaseConnector:
                 )
                 SELECT /*+ RESULT_CACHE LEADING(ac pk) USE_NL(pk) */
                     DISTINCT ac.table_name AS referencing_table
-                FROM all_constraints ac
+                FROM all_constraints ac
                 JOIN pk_constraints pk ON ac.r_constraint_name = pk.constraint_name
                 WHERE ac.constraint_type = 'R'
                 AND ac.owner = :owner
